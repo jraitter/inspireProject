@@ -4,8 +4,8 @@ export default class Quote {
     this.body = data.body;
   }
   get Template() {
-    return `<h6>Author: ${this.author}</h6>
-    <p><b>Quote: </b>${ this.body}</p>
+    // return `<h6>Author: ${this.author}</h6>
+    return `<p title="AUTHOR: ${this.author}"><b>Quote: </b>${this.body}</p>
     `
   }
 }

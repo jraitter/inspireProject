@@ -1,5 +1,6 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
+import todoService from "../services/todo-service.js";
 
 //TODO Create the render function
 function _drawTodos() {
@@ -41,5 +42,14 @@ export default class TodoController {
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
   removeTodo(todoId) {
     TodoService.removeTodoAsync(todoId);
+  }
+  completed(todoId) {
+    console.log("todoId = ", todoId);
+    let currElem = document.getElementById(todoId)
+    console.log("the element is ", currElem.checked)
+    let completed = currElem.checked;
+    // could use {completed}, this would assign the key to completed and value to value of completed
+    todoService.completed(todoId, { completed: completed });
+    // do not call your draw function here because this method is only passing data to the service.
   }
 }

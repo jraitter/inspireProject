@@ -26,8 +26,9 @@ class TodoService {
     todoApi.post("", todoObj)
       //TODO Handle this response from the server (hint: what data comes back, do you want this?)
       .then(result => {
-        let newTodo = new Todo(result.data);
-        store.commit("todos", newTodo);
+        let newTodo = new Todo(result.data.data);
+        let allTodos = [...store.State.todos, newTodo]
+        store.commit("todos", allTodos);
       })
       .catch(err => {
         throw new Error(err);
@@ -46,10 +47,35 @@ class TodoService {
 
   removeTodoAsync(todoId) {
     console.log("removeTodoAsync()", todoId);
+    todoApi
+      .delete(todoId)
+      .then(result => {
+        let filteredTodos = store.State.todos.filter(t => t._id != todoId);
+        store.commit("todos", filteredTodos);
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
 
     //TODO Work through this one on your own
     //		what is the request type
     //		once the response comes back, what do you need to insure happens?
+  }
+
+  completed(todoId, completed) {
+    // in this case completed is an object = { completed: completed }
+    todoApi
+      .put(todoId, completed)
+      .then(result => {
+        let currTodo = store.State.todos.find(c => c._id == todoId);
+        // loop thru properties of this todo and update property with new value
+        for (let prop in completed) {
+          currTodo[prop] = completed[prop];
+        }
+      })
+      .catch(err => {
+        throw new Error(err);
+      })
   }
 }
 

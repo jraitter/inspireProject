@@ -13,6 +13,6 @@ export default class ImageController {
   constructor() {
     console.log("ImageController constructore loaded");
     store.subscribe("images", _drawBGImage)
-    // ImageService.getImage();
+    ImageService.getImage();
   }
 }

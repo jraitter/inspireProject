@@ -10,7 +10,7 @@ const imgApi = axios.create({
 //TODO create methods to retrieve data trigger the update window when it is complete
 class ImageService {
   constructor() {
-    console.log("image-controller constructor loaded");
+    console.log("ImageService constructor loaded");
   }
   getImage() {
     imgApi

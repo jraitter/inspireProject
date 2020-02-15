@@ -12,20 +12,59 @@
 </head>
 
 <body id="bg-image">
-	<div id="weather">
-		Your Weather Template
-	</div>
+	<main class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="row">
+					<div class="col-2">
+						<div id="weather"></div>
+					</div>
+					<div class="col-5"></div>
+					<div class="col-5"></div>
+				</div>
+				<div class="row">
+					<div class="col-4">
+						<div class="card bg-secondary text-white">
+							<div class="card-body" id="quote"></div>
+						</div>
+					</div>
+					<div class="col-4"></div>
+					<div class="col-4">
+						<div class="card bg-secondary">
+							<div class="card-body">
 
-	<div id="quote">
-		The Quote
-	</div>
 
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
-	</div>
+								<div class="row">
+									<div class="col-12">
+										<h4 class="mt-3">Tasks: </h4><span id="todos">task here</span>
+									</div>
+								</div>
+
+
+								<form onsubmit="app.todoController.addTodo(event)">
+									<div class="form-group">
+										<label for=""></label>
+										<input type="text" name="description" class="form-control" placeholder="Add extra tasks">
+										<button class="btn btn-sm btn-primary" type="submit">
+											Add tasks
+										</button>
+									</div>
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+
+
+
 
 
 

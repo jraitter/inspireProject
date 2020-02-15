@@ -1,10 +1,11 @@
 import Weather from "./models/weather.js";
 import Image from "./models/Image.js"
+import Todo from "./models/Todo.js";
 
 let _state = {
   /**@type {Weather} */
   weather: new Weather({ name: "loading", main: { temp: 0.0 } }), //temporary fake data
-  /**@type {any[]}*/
+  /**@type {Todo[]} */
   todos: [], //TODO change 'any' to your todo model
   /**@type Image*/
   images: null,

@@ -45,6 +45,8 @@ class TodoService {
   }
 
   removeTodoAsync(todoId) {
+    console.log("removeTodoAsync()", todoId);
+
     //TODO Work through this one on your own
     //		what is the request type
     //		once the response comes back, what do you need to insure happens?

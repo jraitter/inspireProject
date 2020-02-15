@@ -4,6 +4,13 @@ import store from "../store.js";
 //TODO Create the render function
 function _drawTodos() {
   console.log("entered _drawTodos()")
+  let myTodos = store.State.todos;
+  let dataElem = document.getElementById("todos");
+  let template = "";
+  myTodos.forEach(t => {
+    template += t.Template;
+  })
+  dataElem.innerHTML = template;
 }
 
 export default class TodoController {

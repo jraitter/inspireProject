@@ -23,7 +23,6 @@ export default class TodoController {
       //TODO build the todo object from the data that comes into this method
       description: form.description.value
     };
-    debugger
     TodoService.addTodoAsync(todoObj);
   }
 

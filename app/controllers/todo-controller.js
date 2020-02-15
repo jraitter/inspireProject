@@ -1,17 +1,19 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
-import todoService from "../services/todo-service.js";
 
 //TODO Create the render function
 function _drawTodos() {
   console.log("entered _drawTodos()")
   let myTodos = store.State.todos;
+  let numTodos = store.State.todos.length;
   let dataElem = document.getElementById("todos");
+  let todoCountElem = document.getElementById("todo-count");
   let template = "";
   myTodos.forEach(t => {
     template += t.Template;
   })
   dataElem.innerHTML = template;
+  todoCountElem.innerText = numTodos.toString();
 }
 
 export default class TodoController {
@@ -49,7 +51,7 @@ export default class TodoController {
     console.log("the element is ", currElem.checked)
     let completed = currElem.checked;
     // could use {completed}, this would assign the key to completed and value to value of completed
-    todoService.completed(todoId, { completed: completed });
+    TodoService.completed(todoId, { completed: completed });
     // do not call your draw function here because this method is only passing data to the service.
   }
 }

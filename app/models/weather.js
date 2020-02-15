@@ -12,7 +12,8 @@ export default class Weather {
     this.fahrenheit = Math.ceil((data.main.temp - 273.15) * 9 / 5 + 32)
   }
   get Template() {
-    return `<span class="badge badge-dark">${this.city} Temp: ${this.fahrenheit}F</span>`
+    return `<span class="badge badge-dark">${this.city} Temp: ${this.fahrenheit}F</span>
+    `
   }
 }
 

@@ -14,4 +14,7 @@ export default class QuoteController {
     store.subscribe("quotes", _drawQuote)
     QuoteService.getQuoteOfDay();
   }
+  getNextQuote() {
+    QuoteService.getQuoteOfDay();
+  }
 }

@@ -20,12 +20,15 @@
 						<div id="weather"></div>
 					</div>
 					<div class="col-5"></div>
-					<div class="col-5"></div>
+					<div class="col-5 d-flex justify-content-end">
+						<span class="badge badge-dark use-pointer" onclick="app.imageController.getNextImage()">Next Image</span>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-4">
 						<div class="card bg-secondary text-white">
 							<div class="card-body p-2" id="quote"></div>
+							<span class="badge badge-secondary use-pointer" onclick="app.quoteController.getNextQuote()">Next</span>
 						</div>
 					</div>
 					<div class="col-4"></div>

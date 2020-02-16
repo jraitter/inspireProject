@@ -8,7 +8,7 @@ class App {
   constructor() {
     this.weatherController = new WeatherController();
     this.todoController = new TodoController();
-    this.imagecontroller = new ImageController();
+    this.imageController = new ImageController();
     this.quoteController = new QuoteController();
   }
 }

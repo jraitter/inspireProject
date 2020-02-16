@@ -15,4 +15,7 @@ export default class ImageController {
     store.subscribe("images", _drawBGImage)
     ImageService.getImage();
   }
+  getNextImage() {
+    ImageService.getImage();
+  }
 }

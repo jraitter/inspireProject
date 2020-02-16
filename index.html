@@ -19,9 +19,15 @@
 					<div class="col-2">
 						<div id="weather"></div>
 					</div>
-					<div class="col-5"></div>
 					<div class="col-5 d-flex justify-content-end">
-						<span class="badge badge-dark use-pointer" onclick="app.imageController.getNextImage()">Next Image</span>
+						<div>
+							<span class="badge badge-dark use-pointer" id="clock"
+								onclick="app.weatherController.toggleClock()"></span>
+						</div>
+					</div>
+					<div class=" col-5 d-flex justify-content-end">
+						<span class="badge badge-dark use-pointer" onclick="app.imageController.getNextImage()">Next
+							Image</span>
 					</div>
 				</div>
 				<div class="row">

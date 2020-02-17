@@ -4,13 +4,21 @@ import store from "../store.js";
 //NOTE The weather service and controller are mostly done,
 //		you may wish to check out the model and include some additional data.
 
+let clock;
+let clockReadOut = "12"
+let tempReadOut = "F"
+
 //TODO Complete rendering data to the screen
 function _drawWeather() {
   let weather = store.State.weather;
-  document.getElementById("weather").innerHTML = weather.Template;
+  if (tempReadOut == "K") {
+    document.getElementById("weather").innerHTML = weather.TemplateK;
+  } else if (tempReadOut == "C") {
+    document.getElementById("weather").innerHTML = weather.TemplateC;
+  } else {
+    document.getElementById("weather").innerHTML = weather.TemplateF;
+  }
 }
-let clockReadOut = "12"
-let clock;
 
 function _drawClock(str) {
   let currTime = new Date();
@@ -48,6 +56,20 @@ function convertDay(day) {
       console.error("invalid day of week");
   }
 }
+
+function _getNextReadOut() {
+  switch (tempReadOut) {
+    case "K":
+      return "C"
+    case "C":
+      return "F"
+    case "F":
+      return "K"
+    default:
+      console.error("invalid tempReadOut");
+  }
+}
+
 export default class WeatherController {
   constructor() {
     store.subscribe("weather", _drawWeather);
@@ -58,5 +80,9 @@ export default class WeatherController {
     clearTimeout(clock);
     clockReadOut = (clockReadOut == "12") ? "24" : "12";
     _drawClock(clockReadOut);
+  }
+  toggleTemp() {
+    tempReadOut = _getNextReadOut();
+    _drawWeather();
   }
 }

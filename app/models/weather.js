@@ -9,10 +9,19 @@ export default class Weather {
 
     this.city = data.name;
     this.kelvin = data.main.temp;
-    this.fahrenheit = Math.ceil((data.main.temp - 273.15) * 9 / 5 + 32)
+    this.celsius = Math.ceil(this.kelvin - 273.15);
+    this.fahrenheit = Math.ceil((this.kelvin - 273.15) * 9 / 5 + 32);
   }
-  get Template() {
-    return `<span class="badge badge-dark">${this.city} Temp: ${this.fahrenheit}F</span>
+  get TemplateK() {
+    return `<span class="badge badge-dark use-pointer">${this.city} Temp: ${this.kelvin}K</span>
+    `
+  }
+  get TemplateC() {
+    return `<span class="badge badge-dark use-pointer">${this.city} Temp: ${this.celsius}C</span>
+    `
+  }
+  get TemplateF() {
+    return `<span class="badge badge-dark use-pointer">${this.city} Temp: ${this.fahrenheit}F</span>
     `
   }
 }

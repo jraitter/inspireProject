@@ -22,17 +22,19 @@ function _drawWeather() {
 
 function _drawClock(str) {
   let currTime = new Date();
+  let ampm = ""
   let day = convertDay(currTime.getDay());
   let clockElem = document.getElementById("clock");
   let hour = currTime.getHours();
   if (str == "12") {
+    ampm = hour < 12 ? " AM" : " PM";
     hour = ((hour > 12) ? hour - 12 : (hour == 0) ? 12 : hour);
   }
   let minutes = currTime.getMinutes();
   if (minutes < 10) { minutes = "0" + minutes };
   let seconds = currTime.getSeconds();
   if (seconds < 10) { seconds = "0" + seconds };
-  clockElem.innerText = day + hour + ":" + minutes + ":" + seconds;
+  clockElem.innerText = day + hour + ":" + minutes + ":" + seconds + ampm;
   clock = setTimeout(_drawClock, 1000, clockReadOut);
 }
 
